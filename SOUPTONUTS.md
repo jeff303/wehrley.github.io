@@ -196,8 +196,7 @@ The title "Miss" should help with differentiation betweeen younger and older fem
 ## function for extracting honorific (i.e. title) from the Name feature
 getTitle <- function(data) {
   title.dot.start <- regexpr("\\,[A-Z ]{1,20}\\.", data$Name, TRUE)
-  title.comma.end <- title.dot.start 
-                     + attr(title.dot.start, "match.length")-1
+  title.comma.end <- title.dot.start + attr(title.dot.start, "match.length")-1
   data$Title <- substr(data$Name, title.dot.start+2, title.comma.end-1)
   return (data$Title)
 }   
